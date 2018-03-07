@@ -8,11 +8,14 @@ from keras.layers import Dense
 from keras.optimizers import RMSprop as rm
 from keras.optimizers import Adagrad as ada
 from keras import regularizers as rg
+from keras.models import load_model
 
 dataset = np.genfromtxt('full_final.csv', delimiter=',')
 
 # shuffled the dataset
 np.random.shuffle(dataset)
+
+dataset[:,:18] = 1/(dataset[:,:18])
 
 # normalize min-max scaling
 def normalize(data):
@@ -91,3 +94,4 @@ for i in range(len(testPredict)):
 print ('true prediction number: ' + str(truePrediction))
 print ('test accuracy: ' + str((truePrediction/len(y_test))*100))
 
+model.save('model.h5')

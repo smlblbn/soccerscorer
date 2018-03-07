@@ -1,3 +1,7 @@
+from keras.models import load_model
+import numpy as np
+
+model = load_model('model.h5')
 
 match1 = np.array([[2.00, 3.6, 3.5, 2.1, 3.5, 3.5, 2.0, 3.5, 3.4, 1.05, 2.5, 2.2, 2.0, 3.6, 3.5, 1.05, 2.5, 2.4, 52, 50, 32, 66 ,59, 66, 45, 59, 49, 53, 50, 64, 46, 64, 49, 46]])
 
