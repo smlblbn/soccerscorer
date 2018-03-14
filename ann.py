@@ -9,6 +9,8 @@ from keras.optimizers import RMSprop as rm
 from keras.optimizers import Adagrad as ada
 from keras import regularizers as rg
 from keras.models import load_model
+from keras.models import model_from_json
+import json
 
 dataset = np.genfromtxt('full_final.csv', delimiter=',')
 
@@ -95,3 +97,7 @@ print ('true prediction number: ' + str(truePrediction))
 print ('test accuracy: ' + str((truePrediction/len(y_test))*100))
 
 model.save('model.h5')
+model.save_weights('model_weight.h5')
+json_data = model.to_json()
+with open('json_data.txt', 'w') as outfile:
+    json.dump(json_data, outfile)
