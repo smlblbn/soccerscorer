@@ -36,5 +36,5 @@ with open('full.csv', 'rb') as f:
                 mRow.append(away_wins)
                 csv_writer.writerow(mRow)
         except:
-            print row_num
+            print(row_num)
         row_num += 1
