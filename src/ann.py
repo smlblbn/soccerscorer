@@ -81,6 +81,7 @@ plt.title('model accuracy')
 plt.ylabel('accuracy')
 plt.xlabel('epoch')
 plt.legend(['train', 'validation'], loc='lower right')
+plt.savefig('accuracy.png')
 plt.show()
 
 # summarize history for loss
@@ -90,6 +91,7 @@ plt.title('model loss')
 plt.ylabel('loss')
 plt.xlabel('epoch')
 plt.legend(['train', 'validation'], loc='upper right')
+plt.savefig('loss.png')
 plt.show()
 
 model.save('model/model.h5')
