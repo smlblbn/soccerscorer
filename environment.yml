@@ -1,4 +1,4 @@
-name: mlproject
+name: soccerscorer
 dependencies:
 - python=3.5.1
 - numpy
