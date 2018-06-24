@@ -1,9 +1,7 @@
 name: soccerscorer
 dependencies:
-- python=3.5.1
+- python=3.6.5
 - numpy
 - matplotlib
 - tensorflow-gpu
 - keras
-- scikit-learn
-- scipy

@@ -8,10 +8,10 @@ np.random.seed(seed=seed)
 
 from keras.models import Sequential
 from keras.layers import Dense, BatchNormalization, Dropout
-from keras import initializers, regularizers
 from keras.optimizers import RMSprop as rm
 from keras.optimizers import Adagrad as ada
 from keras.optimizers import SGD as sgd
+from keras import initializers, regularizers
 
 mean = 0
 std = 0
@@ -59,37 +59,47 @@ epochs = 1000
 model = Sequential()
 model.add(Dense(34,
                 input_dim=34,
+                bias_initializer=initializers.Constant(0.01),
+                bias_regularizer=regularizers.l2(0.01),
                 kernel_initializer=initializers.he_normal(seed=seed),
                 kernel_regularizer=regularizers.l2(0.01),
                 activation='relu'))
-#model.add(BatchNormalization())
+model.add(BatchNormalization())
 #model.add(Dropout(0.2))
 model.add(Dense(17,
+                bias_initializer=initializers.Constant(0.01),
+                bias_regularizer=regularizers.l2(0.01),
                 kernel_initializer=initializers.he_normal(seed=seed),
                 kernel_regularizer=regularizers.l2(0.01),
                 activation='relu'))
-#model.add(BatchNormalization())
+model.add(BatchNormalization())
 #model.add(Dropout(0.2))
 model.add(Dense(9,
+                bias_initializer=initializers.Constant(0.01),
+                bias_regularizer=regularizers.l2(0.01),
                 kernel_initializer=initializers.he_normal(seed=seed),
                 kernel_regularizer=regularizers.l2(0.01),
                 activation='relu'))
-#model.add(BatchNormalization())
+model.add(BatchNormalization())
 #model.add(Dropout(0.2))
 model.add(Dense(8,
+                bias_initializer=initializers.Constant(0.01),
+                bias_regularizer=regularizers.l2(0.01),
                 kernel_initializer=initializers.he_normal(seed=seed),
                 kernel_regularizer=regularizers.l2(0.01),
                 activation='relu'))
-#model.add(BatchNormalization())
+model.add(BatchNormalization())
 #model.add(Dropout(0.2))
 model.add(Dense(3,
+                bias_initializer=initializers.Constant(0.01),
+                bias_regularizer=regularizers.l2(0.01),
                 kernel_initializer=initializers.he_normal(seed=seed),
                 kernel_regularizer=regularizers.l2(0.01),
                 activation='softmax'))
 
 #opt = rm()
 #opt = ada()
-opt = sgd(lr=1e-3, momentum=0.9, decay=1e-5, nesterov=True)
+opt = sgd(lr=1e-4, momentum=0.9, decay=1e-5, nesterov=True)
 
 model.compile(loss='categorical_crossentropy',
               optimizer=opt,
